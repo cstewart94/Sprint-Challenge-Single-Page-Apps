@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import CharacterCard from './CharacterCard';
+import SearchForm from './SearchForm.js';
+
+import { Container } from './Style.js';
 
 const CharacterList = props => {
   // TODO: Add useState to track data from useEffect
@@ -20,12 +23,13 @@ const CharacterList = props => {
   }, []);
 
   return (
-    <section className="character-list">
+    <Container className="character-list">
+      <SearchForm />
       {newCharacter.map((character, id) => {
         return <CharacterCard key={id} character={character} />;
       })}
-    </section>
+    </Container>
   );
 }
 
-export default CharacterList;
+export default CharacterList; 

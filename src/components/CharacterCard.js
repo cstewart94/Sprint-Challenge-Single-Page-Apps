@@ -1,17 +1,19 @@
 import React from "react";
 
+import { Card, ImgBox, HOne, HTwo } from './Style.js';
+
 const CharacterCard = (props) => {
   return (
-    <div>
-      <h1>{props.character.name}</h1>
-      <h2>{props.character.status}</h2>
-      <h2>{props.character.species}</h2>
-      <img
+    <Card>
+      <HTwo>{props.character.status}</HTwo>
+      <HTwo>{props.character.species}</HTwo>
+      <HOne>{props.character.name}</HOne>
+      <ImgBox
         className="main-img"
         src={props.character.image}
         alt={props.character.name}
       />
-    </div>
+    </Card>
   )
 
 };
