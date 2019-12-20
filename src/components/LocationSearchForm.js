@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
-import CharacterCard from './CharacterCard';
+import LocationCard from './LocationCard';
 import axios from "axios";
 
 import { Container } from './Style.js';
 
-const SearchForm = (props) => {
+const LocationSearchForm = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    axios.get('https://rickandmortyapi.com/api/character/')
+    axios.get('https://rickandmortyapi.com/api/location/')
       .then(response => {
         console.log(response.data.results);
-        const characters = response.data.results;
-        const charSearchResults = characters.filter(character => {
-          return character.name.toLowerCase().includes(searchTerm.toLowerCase());
+        const locations = response.data.results;
+        const locationSearchResults = locations.filter(location => {
+          return location.name.toLowerCase().includes(searchTerm.toLowerCase());
         })
-        setSearchResults(charSearchResults);
+        setSearchResults(locationSearchResults);
       })
       .catch(error => {
         console.log('Search Error', error);
@@ -47,9 +47,9 @@ const SearchForm = (props) => {
       </form>
       <Container>
         {
-          searchResults.map((character) => (
+          searchResults.map((location) => (
 
-            <CharacterCard character={character} />
+            <LocationCard location={location} />
 
           ))
         }
@@ -60,4 +60,4 @@ const SearchForm = (props) => {
 }
 
 
-export default SearchForm;
+export default LocationSearchForm;

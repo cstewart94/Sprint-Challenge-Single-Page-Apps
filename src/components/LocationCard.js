@@ -1,5 +1,16 @@
 import React from "react";
 
-export default function LocationCard({ name, type, dimension, residents }) {
-  return <span>todo: location</span>;
-}
+import { Card, HOne, HTwo } from './Style.js';
+
+const LocationCard = (props) => {
+  return (
+    <Card>
+      <HTwo>{props.location.dimension}</HTwo>
+      <HTwo>{props.location.type}</HTwo>
+      <HOne>{props.location.name}</HOne>
+    </Card>
+  )
+
+};
+
+export default LocationCard;
